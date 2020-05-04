@@ -74,7 +74,7 @@ while {alive _unit && (_unit getVariable ["JSHK_contam_damageHandle",false])} do
 		};
 		case (_timeDiff >= _timeToDeath):
 		{
-			[_unit] call ace_medical_fnc_setCardiacArrest;
+			[_unit,true] call ace_medical_status_fnc_setCardiacArrestState;
 		};
 		default {};
 	};
