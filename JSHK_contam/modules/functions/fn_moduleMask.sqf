@@ -60,6 +60,19 @@ if (_logic getVariable ["JSHK_contamModuleVar_includeJSHKMask",false]) then
 		} forEach _jshkMaskS10Arr;
 	} else { ["fn_moduleMask: JSHK Contamination Gear masks pbo not loaded, unable to include in masks array",true] call JSHK_contam_fnc_logMessage};
 };
+if (_logic getVariable ["JSHK_contamModuleVar_includeContactMask",false]) then
+{
+	private _jshkMask50Arr = ["G_AirPurifyingRespirator_01_F","G_AirPurifyingRespirator_02_black_F","G_AirPurifyingRespirator_02_olive_F","G_AirPurifyingRespirator_02_sand_F"];
+	private _jshkMask04Arr = ["G_RegulatorMask_F"];
+	{	
+		_masks50 pushBackUnique _x;
+		_allMasks pushBackUnique _x;
+	} forEach _jshkMask50Arr;
+	{
+		_masksOpen pushBackUnique _x;
+		_allMasks pushBackUnique _x;
+	} forEach _jshkMask04Arr;
+};
 
 missionNamespace setVariable ["JSHK_contam_gasMasks50",_masks50];
 missionNamespace setVariable ["JSHK_contam_gasMasksTwo",_masksTwo];

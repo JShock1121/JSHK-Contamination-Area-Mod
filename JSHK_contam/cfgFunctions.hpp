@@ -100,6 +100,7 @@ class JSHK_contam_addon
 		class isWearingUniform {};
 		class isWearingVest {};
 		class isWearingHeadgear {};
+		class isWearingBackpack {};
 		
 		class hasDetector {};
 	};

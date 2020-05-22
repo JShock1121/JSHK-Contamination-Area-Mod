@@ -41,8 +41,8 @@ if (isNil "JSHK_contam_aiAutoRecovery") then
 };
 if (isNil "JSHK_contam_ACE_enabled") then
 {
-	JSHK_contam_ACE_enabled = isClass(configFile >> "CfgPatches" >> "ace_main");
-	if (JSHK_contam_ACE_enabled) then {["ACE Registered",true] call JSHK_contam_fnc_logMessage;};
+	JSHK_contam_ACE_enabled = isClass(configFile >> "CfgPatches" >> "ace_medical_status");
+	if (JSHK_contam_ACE_enabled) then {["ACE Medical Registered",true] call JSHK_contam_fnc_logMessage;};
 };
 if (isNil "JSHK_contam_gasMasks") then
 {
@@ -63,6 +63,10 @@ if (isNil "JSHK_contam_vests") then
 if (isNil "JSHK_contam_headgear") then
 {
 	JSHK_contam_headgear = [];
+};
+if (isNil "JSHK_contam_packs") then
+{
+	JSHK_contam_packs = [];
 };
 if (isNil "JSHK_contam_enableCough") then
 {

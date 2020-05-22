@@ -9,7 +9,7 @@ Return: none
 params [["_pos",[0,0,0],[[]],3], ["_obj",objNull,[objNull]]];
 
 if (!hasInterface || !([player] call JSHK_contam_fnc_isZeus)) exitWith {};
-
+if (JSHK_contam_zeus_mod_fn) exitWith {_this call JSHK_contam_fnc_zeusEnhAddArea};
 
 private _dialogResult =
 [
@@ -24,7 +24,7 @@ private _dialogResult =
 		["Object Zone Radius", "", "5",true],
 		["Time to Death (in secs)", "", "100",true],
 		["Show Map Marker(s)", ["None","Basic","Transparent","Warning Area"],0,true],
-		["MOPP Level", ["No MOPP","MOPP 1 (mask only)","MOPP 2 (mask and uniform)","MOPP 3 (mask/uniform/vest)"],0,true]
+		["MOPP Level", ["No MOPP","MOPP 1 (mask only)","MOPP 2 (mask and uniform)","MOPP 3 (mask/uniform/pack)","MOPP 4 (mask/uniform/pack/vest)"],0,true]
 	]
 ] call Ares_fnc_showChooseDialog;
 

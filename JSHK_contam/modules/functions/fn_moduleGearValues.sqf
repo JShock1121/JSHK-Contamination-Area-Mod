@@ -33,6 +33,18 @@ private _vestArr = [];
 	};
 } forEach _vests;
 
+private _packs = [(_logic getVariable ["JSHK_contamModuleVar_packs",""])] call JSHK_contam_fnc_strToArray;
+private _packArr = [];
+{
+	if (isClass (configFile >> "CfgVehicles" >> _x)) then
+	{
+		_packArr pushBackUnique _x;
+	} else
+	{
+		[format ["fn_moduleGearValues: Backpack classname provided does not exist: %1",_x],true] call JSHK_contam_fnc_logMessage;
+	};
+} forEach _packs;
+
 if (_logic getVariable ["JSHK_contamModuleVar_includeJSHKGear",false]) then
 {
 	if (isClass(configFile >> "CfgPatches" >> "JSHK_contam_gear_suits")) then
@@ -50,7 +62,13 @@ if (_logic getVariable ["JSHK_contamModuleVar_includeJSHKGear",false]) then
 	} else { ["fn_moduleGearValues: JSHK Contamination Gear suits pbo not loaded, unable to include in gear array",true] call JSHK_contam_fnc_logMessage};
 };
 
+if (_logic getVariable ["JSHK_contamModuleVar_includeContactGear",false]) then
+{
+	_packArr append ["B_CombinationUnitRespirator_01_F","B_SCBA_01_F"];
+};
+
 missionNamespace setVariable ["JSHK_contam_uniforms",_uniArr];
 missionNamespace setVariable ["JSHK_contam_vests",_vestArr];
+missionNamespace setVariable ["JSHK_contam_packs",_packArr];
 
 _logic setVariable ["JSHK_contamModule_initCompleted",true];

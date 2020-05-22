@@ -9,7 +9,6 @@ Return: none
 params [["_obj",objNull,[objNull]]];
 
 if (!hasInterface || !([player] call JSHK_contam_fnc_isZeus)) exitWith {};
-if (JSHK_contam_zeus_mod_fn) exitWith {_this call JSHK_contam_fnc_zeusEnhEditSafeArea};
 
 private _info = [];
 if (!isNull _obj) then

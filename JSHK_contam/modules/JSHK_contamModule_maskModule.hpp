@@ -86,6 +86,13 @@ class JSHK_contamModule_maskModule: Module_F
 			typeName = "BOOL";
 			defaultValue = false;
 		};
+		class JSHK_contamModuleVar_includeContactMask
+		{
+			displayName = "Include Contact Masks";
+			description = "Include the masks contained within the Contact Expansion";
+			typeName = "BOOL";
+			defaultValue = false;
+		};
 	};
 	
 	class ModuleDescription: ModuleDescription

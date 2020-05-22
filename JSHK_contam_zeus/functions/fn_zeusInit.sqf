@@ -7,16 +7,15 @@ Return: none
 
 *///////////////////////////////////////////////
 
-if !(isClass (configFile >> "CfgPatches" >> "achilles_modules_f_achilles") && 
-		isClass (configFile >> "CfgPatches" >> "cba_main")) exitWith
+private _hasAch = isClass (configFile >> "CfgPatches" >> "achilles_modules_f_achilles");
+private _hasZen = isClass (configFile >> "CfgPatches" >> "zen_custom_modules");
+if !(_hasAch || _hasZen) exitWith
 {
-	private _msg = "******CBA and/or Achilles not detected and are required to use JSHK CAM Zeus Extension!!!";
-	//systemChat _msg;
+	private _msg = "******CBA and/or Achilles or Zeus Enhanced not detected and are required to use JSHK CAM Zeus Extension!!!";
 	[_msg,true] call JSHK_contam_fnc_logMessage;
 };
-	//can ach and cba be client (aka zeus) side only or server required?
 
-//check that all main modules are loaded and/or all associated variables present?
+JSHK_contam_zeus_mod_fn = _hasZen;
 
 if (!hasInterface) exitWith {};
 
@@ -33,7 +32,7 @@ private _wait = [player] spawn
 		};
 		sleep 1;
 		_timeout = _timeout + 1;
-		if (!isNull (getAssignedCuratorLogic _unit)) exitWith {true;};
+		if (count allCurators == 0 || {!isNull (getAssignedCuratorLogic _unit)}) exitWith {true};
 		false;
 	};
 	/*waitUntil 
@@ -62,13 +61,27 @@ private _wait = [player] spawn
 		
 	];
 
+	if !(JSHK_contam_zeus_mod_fn) then 
 	{
-		[
-			"JSHK Contam Zeus Modules", 
-			(_x select 0), 
-			(_x select 1)
-		] call Ares_fnc_RegisterCustomModule;
-	} forEach _moduleList;
+		{
+			[
+				"JSHK Contam Zeus Modules", 
+				(_x select 0), 
+				(_x select 1)
+			] call Ares_fnc_RegisterCustomModule;
+		} forEach _moduleList;
+	} else {
+		{
+			private _reg = 
+			[
+				"JSHK Contam Zeus Modules", 
+				(_x select 0), 
+				(_x select 1),
+				"\JSHK_contam\data\icon_ca.paa"
+			] call zen_custom_modules_fnc_register;
+			[format["Zeus Enh Module: %1 registered -- %2",_x select 0,_reg]] call JSHK_contam_fnc_logMessage;
+		} forEach _moduleList;
+	};
 
 	if ([player] call JSHK_contam_fnc_isZeus) then
 	{
@@ -121,5 +134,5 @@ private _wait = [player] spawn
 	};
 };
 //waitUntil {scriptDone _wait};
-["fn_zeusInit: Zeus initialization complete.",true] call JSHK_contam_fnc_logMessage;
+[format ["fn_zeusInit: Zeus initialization complete. Achilles Detected: %1 -- Zeus Enhanced Detected: %2",_hasAch,_hasZen],true] call JSHK_contam_fnc_logMessage;
 

@@ -28,10 +28,24 @@ class JSHK_contamModule_gearSettingsModule: Module_F
 			typeName = "STRING";
 			defaultValue = "";
 		};
+		class JSHK_contamModuleVar_packs
+		{
+			displayName = "Types of Backpacks";
+			description = "Classnames of backpacks (seperate by commas with no quotations)";
+			typeName = "STRING";
+			defaultValue = "";
+		};
 		class JSHK_contamModuleVar_includeJSHKGear
 		{
 			displayName = "Include JSHK Gear";
 			description = "Include the gear contained within the JSHK Contamination Gear addon (not including the masks)";
+			typeName = "BOOL";
+			defaultValue = false;
+		};
+		class JSHK_contamModuleVar_includeContactGear
+		{
+			displayName = "Include Contact Gear";
+			description = "Include the gear contained within the Contact Expansion (backpacks)";
 			typeName = "BOOL";
 			defaultValue = false;
 		};

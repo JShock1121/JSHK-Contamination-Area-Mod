@@ -9,7 +9,6 @@ Return: none
 params [["_pos", [0,0,0], [[]]], ["_unit", objNull, [objNull]]];
 
 if (!hasInterface || !([player] call JSHK_contam_fnc_isZeus)) exitWith {};
-if (JSHK_contam_zeus_mod_fn) exitWith {_this call JSHK_contam_fnc_zeusEnhGodMode};
 
 if (isMultiplayer) then
 {
@@ -17,21 +16,21 @@ if (isMultiplayer) then
 		
 	if !([_unit] call JSHK_contam_fnc_godModeEnabled) then
 	{
-		[format ["%1 is now invulnerable",name _unit]] call ares_fnc_showZeusMessage;
+		[format ["%1 is now invulnerable",name _unit]] call zen_common_fnc_showMessage;
 	} else
 	{
-		[format ["%1 is now vulnerable",name _unit]] call ares_fnc_showZeusMessage;
+		[format ["%1 is now vulnerable",name _unit]] call zen_common_fnc_showMessage;
 	};
 } else
 {
 	if !([player] call JSHK_contam_fnc_godModeEnabled) then
 	{
 		JSHK_contam_godModeUnits pushBackUnique player;
-		[format ["%1 is now invulnerable",name player]] call ares_fnc_showZeusMessage;
+		[format ["%1 is now invulnerable",name player]] call zen_common_fnc_showMessage;
 	} else
 	{
 		JSHK_contam_godModeUnits = [];
-		[format ["%1 is now vulnerable",name player]] call ares_fnc_showZeusMessage;
+		[format ["%1 is now vulnerable",name player]] call zen_common_fnc_showMessage;
 	};
 
 };

@@ -23,20 +23,20 @@ if (_level > 0) then
 		case 2:
 		{
 			[_unit] call JSHK_contam_fnc_isWearingMask &&
-			[_unit] call JSHK_contam_fnc_isWearingUniform 
+			[_unit] call JSHK_contam_fnc_isWearingUniform
 		};
 		case 3:
 		{
 			[_unit] call JSHK_contam_fnc_isWearingMask &&
 			[_unit] call JSHK_contam_fnc_isWearingUniform &&
-			[_unit] call JSHK_contam_fnc_isWearingVest
+			[_unit] call JSHK_contam_fnc_isWearingBackpack
 		};
 		case 4:
 		{
 			[_unit] call JSHK_contam_fnc_isWearingMask &&
 			[_unit] call JSHK_contam_fnc_isWearingUniform &&
 			[_unit] call JSHK_contam_fnc_isWearingVest &&
-			[_unit] call JSHK_contam_fnc_isWearingHeadgear
+			[_unit] call JSHK_contam_fnc_isWearingBackpack
 		};
 		default { false; };
 	};

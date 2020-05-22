@@ -103,8 +103,8 @@ class JSHK_contamModule_areaModule: Module_F
 				class none {name = "No Gear"; value = 0; default = 1;};
 				class one {name = "MOPP Level One (Mask Only)"; value = 1; default = 1;};
 				class two {name = "MOPP Level Two (Mask and Uniform)"; value = 2; default = 1;};
-				class three {name = "MOPP Level Three (Mask, Uniform, Vest)"; value = 3; default = 1;};
-				//class four {name = "MOPP Level Four (Mask, Uniform, Vest, Headgear/Goggles)"; value = 4; default = 1;};
+				class three {name = "MOPP Level Three (Mask, Uniform, Backpack (Airtank))"; value = 3; default = 1;};
+				class four {name = "MOPP Level Four (Mask, Uniform, Backpack (Airtank), Vest"; value = 4; default = 1;};
 			};
 		};
 	};

@@ -23,4 +23,22 @@ class JSHK_contam_addon
 		
 		class zeusAddGear {};
 	};
+	class Contamination_zeus_enh
+	{
+		file = "\JSHK_contam_zeus\functions\zeus_enh";
+		
+		class zeusEnhAddArea {};
+		class zeusEnhRemoveArea {};
+		class zeusEnhEditArea {};
+		
+		class zeusEnhAddSafeArea {};
+		class zeusEnhRemoveSafeArea {};
+		class zeusEnhEditSafeArea {};
+		
+		class zeusEnhGodMode {};
+		
+		class zeusEnhSafeVehicle {};
+		
+		class zeusEnhAddGear {};
+	};
 };

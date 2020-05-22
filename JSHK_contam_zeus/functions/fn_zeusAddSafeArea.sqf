@@ -9,7 +9,7 @@ Return: none
 params [["_pos",[0,0,0],[[]],3], ["_obj",objNull,[objNull]]];
 
 if (!hasInterface || !([player] call JSHK_contam_fnc_isZeus)) exitWith {};
-
+if (JSHK_contam_zeus_mod_fn) exitWith {_this call JSHK_contam_fnc_zeusEnhAddSafeArea};
 
 private _dialogResult =
 [
