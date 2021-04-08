@@ -116,9 +116,9 @@ while {alive _unit && (_unit getVariable ["JSHK_contam_damageHandle",false])} do
 			//};	
 
 			//increase damage and damage time, if we haven't
-			if !_halfIncrease then
+			if !_threeQuarterIncrease then
 			{
-				_halfIncrease = true;
+				_threeQuarterIncrease = true;
 				_damage = 0.5; 
 				_dmgTimer = (_timeToDeath * 0.05) max 3;
 				_lastDmgTime = _now;
